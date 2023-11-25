@@ -1,0 +1,758 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmpmshsu8x5my"]
+
+[ext_resource type="Texture2D" uid="uid://3hjtik3pkvj5" path="res://Assets/backgroundEmpty.png" id="1_0nnvn"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_6v8l5"]
+[ext_resource type="Texture2D" uid="uid://bbtowi4oei1pm" path="res://Assets/grassMid.png" id="2_b11ks"]
+[ext_resource type="PackedScene" uid="uid://v5scionpdo6u" path="res://Scenes/player.tscn" id="3_2rohj"]
+[ext_resource type="PackedScene" uid="uid://d14echvo7lx67" path="res://Scenes/enemy.tscn" id="3_tf50o"]
+[ext_resource type="PackedScene" uid="uid://bdtbs2ndxpjyw" path="res://Scenes/dome.tscn" id="4_yxveo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0qmi"]
+size = Vector2(70, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu5th"]
+
+[sub_resource type="Curve2D" id="Curve2D_e1u0n"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 56, 56, 0, 0, 0, 0, 144, 56, 0, 0, 0, 0, 144, 96, 0, 0, 0, 0, 56, 96, 0, 0, 0, 0, 56, 136, 0, 0, 0, 0, 144, 136, 0, 0, 0, 0, 139.693, 141.175, 0, 0, 0, 0, 144, 176, 0, 0, 0, 0, 56, 176, 0, 0, 0, 0, 56, 216, 0, 0, 0, 0, 144, 216, 0, 0, 0, 0, 144, 256, 0, 0, 0, 0, 56, 256, 0, 0, 0, 0, 56, 296, 0, 0, 0, 0, 144, 296)
+}
+point_count = 15
+
+[node name="Main" type="Node2D" groups=["Game"]]
+script = ExtResource("1_6v8l5")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="Background" type="TextureRect" parent="Level"]
+z_index = -999
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0nnvn")
+
+[node name="Bounds" type="Node" parent="Level"]
+
+[node name="Floor" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(15, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor2" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(85, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor2"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor2"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor3" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(155, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor3"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor3"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor4" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(225, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor4"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor4"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor5" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(295, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor5"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor5"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor6" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(365, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor6"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor6"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor7" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(435, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor7"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor7"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor8" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(505, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor8"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor8"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor9" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(575, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor9"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor9"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor10" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(645, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor10"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor10"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor11" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(715, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor11"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor11"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor12" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(785, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor12"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor12"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor13" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(855, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor13"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor13"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor14" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(925, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor14"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor14"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor15" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(995, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor15"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor15"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor16" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(1065, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor16"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor16"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="Floor17" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(1135, 613)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Bounds/Floor17"]
+texture = ExtResource("2_b11ks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/Floor17"]
+shape = SubResource("RectangleShape2D_k0qmi")
+
+[node name="LeftWall" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(-10, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/LeftWall"]
+shape = SubResource("RectangleShape2D_vu5th")
+
+[node name="RightWall" type="StaticBody2D" parent="Level/Bounds"]
+position = Vector2(1162, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Bounds/RightWall"]
+shape = SubResource("RectangleShape2D_vu5th")
+
+[node name="ColumnPaths" type="Node2D" parent="Level"]
+
+[node name="Column1" type="Path2D" parent="Level/ColumnPaths"]
+position = Vector2(-16, -16)
+curve = SubResource("Curve2D_e1u0n")
+
+[node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column1"]
+position = Vector2(56, 56)
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column1/FirstRow"]
+remote_path = NodePath("../../../../Enemies/Enemy")
+
+[node name="FirstRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column1"]
+position = Vector2(142.012, 55.9138)
+progress = 85.7823
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column1/FirstRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy2")
+
+[node name="SecondRow" type="PathFollow2D" parent="Level/ColumnPaths/Column1"]
+position = Vector2(57.045, 136.127)
+progress = 257.347
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column1/SecondRow"]
+remote_path = NodePath("../../../../Enemies/Enemy3")
+
+[node name="SecondRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column1"]
+position = Vector2(143.545, 135.823)
+progress = 343.129
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column1/SecondRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy4")
+
+[node name="ThirdRow" type="PathFollow2D" parent="Level/ColumnPaths/Column1"]
+position = Vector2(56.6015, 216.117)
+progress = 514.694
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column1/ThirdRow"]
+remote_path = NodePath("../../../../Enemies/Enemy5")
+
+[node name="ThirdRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column1"]
+position = Vector2(142.955, 215.873)
+progress = 600.476
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column1/ThirdRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy6")
+
+[node name="Column2" type="Path2D" parent="Level/ColumnPaths"]
+position = Vector2(144, -16)
+curve = SubResource("Curve2D_e1u0n")
+
+[node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column2"]
+position = Vector2(56, 56)
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column2/FirstRow"]
+remote_path = NodePath("../../../../Enemies/Enemy7")
+
+[node name="FirstRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column2"]
+position = Vector2(142.012, 55.9138)
+progress = 85.7823
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column2/FirstRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy8")
+
+[node name="SecondRow" type="PathFollow2D" parent="Level/ColumnPaths/Column2"]
+position = Vector2(57.045, 136.127)
+progress = 257.347
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column2/SecondRow"]
+remote_path = NodePath("../../../../Enemies/Enemy9")
+
+[node name="SecondRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column2"]
+position = Vector2(143.545, 135.823)
+progress = 343.129
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column2/SecondRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy10")
+
+[node name="ThirdRow" type="PathFollow2D" parent="Level/ColumnPaths/Column2"]
+position = Vector2(56.6015, 216.117)
+progress = 514.694
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column2/ThirdRow"]
+remote_path = NodePath("../../../../Enemies/Enemy11")
+
+[node name="ThirdRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column2"]
+position = Vector2(142.955, 215.873)
+progress = 600.476
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column2/ThirdRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy12")
+
+[node name="Column3" type="Path2D" parent="Level/ColumnPaths"]
+position = Vector2(312, -16)
+curve = SubResource("Curve2D_e1u0n")
+
+[node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column3"]
+position = Vector2(56, 56)
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column3/FirstRow"]
+remote_path = NodePath("../../../../Enemies/Enemy13")
+
+[node name="FirstRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column3"]
+position = Vector2(142.012, 55.9138)
+progress = 85.7823
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column3/FirstRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy14")
+
+[node name="SecondRow" type="PathFollow2D" parent="Level/ColumnPaths/Column3"]
+position = Vector2(57.045, 136.127)
+progress = 257.347
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column3/SecondRow"]
+remote_path = NodePath("../../../../Enemies/Enemy15")
+
+[node name="SecondRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column3"]
+position = Vector2(143.545, 135.823)
+progress = 343.129
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column3/SecondRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy16")
+
+[node name="ThirdRow" type="PathFollow2D" parent="Level/ColumnPaths/Column3"]
+position = Vector2(56.6015, 216.117)
+progress = 514.694
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column3/ThirdRow"]
+remote_path = NodePath("../../../../Enemies/Enemy17")
+
+[node name="ThirdRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column3"]
+position = Vector2(142.955, 215.873)
+progress = 600.476
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column3/ThirdRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy18")
+
+[node name="Column4" type="Path2D" parent="Level/ColumnPaths"]
+position = Vector2(472, -16)
+curve = SubResource("Curve2D_e1u0n")
+
+[node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column4"]
+position = Vector2(56, 56)
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column4/FirstRow"]
+remote_path = NodePath("../../../../Enemies/Enemy19")
+
+[node name="FirstRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column4"]
+position = Vector2(142.012, 55.9138)
+progress = 85.7823
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column4/FirstRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy20")
+
+[node name="SecondRow" type="PathFollow2D" parent="Level/ColumnPaths/Column4"]
+position = Vector2(57.045, 136.127)
+progress = 257.347
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column4/SecondRow"]
+remote_path = NodePath("../../../../Enemies/Enemy21")
+
+[node name="SecondRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column4"]
+position = Vector2(143.545, 135.823)
+progress = 343.129
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column4/SecondRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy22")
+
+[node name="ThirdRow" type="PathFollow2D" parent="Level/ColumnPaths/Column4"]
+position = Vector2(56.6015, 216.117)
+progress = 514.694
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column4/ThirdRow"]
+remote_path = NodePath("../../../../Enemies/Enemy23")
+
+[node name="ThirdRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column4"]
+position = Vector2(142.955, 215.873)
+progress = 600.476
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column4/ThirdRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy24")
+
+[node name="Column5" type="Path2D" parent="Level/ColumnPaths"]
+position = Vector2(632, -16)
+curve = SubResource("Curve2D_e1u0n")
+
+[node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column5"]
+position = Vector2(56, 56)
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column5/FirstRow"]
+remote_path = NodePath("../../../../Enemies/Enemy25")
+
+[node name="FirstRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column5"]
+position = Vector2(142.012, 55.9138)
+progress = 85.7823
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column5/FirstRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy26")
+
+[node name="SecondRow" type="PathFollow2D" parent="Level/ColumnPaths/Column5"]
+position = Vector2(57.045, 136.127)
+progress = 257.347
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column5/SecondRow"]
+remote_path = NodePath("../../../../Enemies/Enemy27")
+
+[node name="SecondRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column5"]
+position = Vector2(143.545, 135.823)
+progress = 343.129
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column5/SecondRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy28")
+
+[node name="ThirdRow" type="PathFollow2D" parent="Level/ColumnPaths/Column5"]
+position = Vector2(56.6015, 216.117)
+progress = 514.694
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column5/ThirdRow"]
+remote_path = NodePath("../../../../Enemies/Enemy29")
+
+[node name="ThirdRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column5"]
+position = Vector2(142.955, 215.873)
+progress = 600.476
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column5/ThirdRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy30")
+
+[node name="Column6" type="Path2D" parent="Level/ColumnPaths"]
+position = Vector2(784, -16)
+curve = SubResource("Curve2D_e1u0n")
+
+[node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column6"]
+position = Vector2(56, 56)
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column6/FirstRow"]
+remote_path = NodePath("../../../../Enemies/Enemy31")
+
+[node name="FirstRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column6"]
+position = Vector2(142.012, 55.9138)
+progress = 85.7823
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column6/FirstRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy32")
+
+[node name="SecondRow" type="PathFollow2D" parent="Level/ColumnPaths/Column6"]
+position = Vector2(57.045, 136.127)
+progress = 257.347
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column6/SecondRow"]
+remote_path = NodePath("../../../../Enemies/Enemy33")
+
+[node name="SecondRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column6"]
+position = Vector2(143.545, 135.823)
+progress = 343.129
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column6/SecondRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy34")
+
+[node name="ThirdRow" type="PathFollow2D" parent="Level/ColumnPaths/Column6"]
+position = Vector2(56.6015, 216.117)
+progress = 514.694
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column6/ThirdRow"]
+remote_path = NodePath("../../../../Enemies/Enemy35")
+
+[node name="ThirdRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column6"]
+position = Vector2(142.955, 215.873)
+progress = 600.476
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column6/ThirdRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy36")
+
+[node name="Column7" type="Path2D" parent="Level/ColumnPaths"]
+position = Vector2(944, -16)
+curve = SubResource("Curve2D_e1u0n")
+
+[node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column7"]
+position = Vector2(56, 56)
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column7/FirstRow"]
+remote_path = NodePath("../../../../Enemies/Enemy37")
+
+[node name="FirstRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column7"]
+position = Vector2(142.012, 55.9138)
+progress = 85.7823
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column7/FirstRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy38")
+
+[node name="SecondRow" type="PathFollow2D" parent="Level/ColumnPaths/Column7"]
+position = Vector2(57.045, 136.127)
+progress = 257.347
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column7/SecondRow"]
+remote_path = NodePath("../../../../Enemies/Enemy39")
+
+[node name="SecondRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column7"]
+position = Vector2(143.545, 135.823)
+progress = 343.129
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column7/SecondRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy40")
+
+[node name="ThirdRow" type="PathFollow2D" parent="Level/ColumnPaths/Column7"]
+position = Vector2(56.6015, 216.117)
+progress = 514.694
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column7/ThirdRow"]
+remote_path = NodePath("../../../../Enemies/Enemy41")
+
+[node name="ThirdRow2" type="PathFollow2D" parent="Level/ColumnPaths/Column7"]
+position = Vector2(142.955, 215.873)
+progress = 600.476
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level/ColumnPaths/Column7/ThirdRow2"]
+remote_path = NodePath("../../../../Enemies/Enemy42")
+
+[node name="Enemies" type="Node2D" parent="Level"]
+
+[node name="Enemy" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(40, 40)
+
+[node name="Enemy2" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(126.012, 39.9138)
+
+[node name="Enemy3" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(41.045, 120.127)
+
+[node name="Enemy4" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(127.545, 119.823)
+
+[node name="Enemy5" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(40.6015, 200.117)
+
+[node name="Enemy6" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(126.955, 199.873)
+
+[node name="Enemy7" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(200, 40)
+
+[node name="Enemy8" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(286.012, 39.9138)
+
+[node name="Enemy9" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(201.045, 120.127)
+
+[node name="Enemy10" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(287.545, 119.823)
+
+[node name="Enemy11" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(200.601, 200.117)
+
+[node name="Enemy12" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(286.955, 199.873)
+
+[node name="Enemy13" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(368, 40)
+
+[node name="Enemy14" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(454.012, 39.9138)
+
+[node name="Enemy15" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(369.045, 120.127)
+
+[node name="Enemy16" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(455.545, 119.823)
+
+[node name="Enemy17" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(368.602, 200.117)
+
+[node name="Enemy18" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(454.955, 199.873)
+
+[node name="Enemy19" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(528, 40)
+
+[node name="Enemy20" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(614.012, 39.9138)
+
+[node name="Enemy21" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(529.045, 120.127)
+
+[node name="Enemy22" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(615.545, 119.823)
+
+[node name="Enemy23" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(528.602, 200.117)
+
+[node name="Enemy24" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(614.955, 199.873)
+
+[node name="Enemy25" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(688, 40)
+
+[node name="Enemy26" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(774.012, 39.9138)
+
+[node name="Enemy27" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(689.045, 120.127)
+
+[node name="Enemy28" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(775.545, 119.823)
+
+[node name="Enemy29" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(688.602, 200.117)
+
+[node name="Enemy30" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(774.955, 199.873)
+
+[node name="Enemy31" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(840, 40)
+
+[node name="Enemy32" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(926.012, 39.9138)
+
+[node name="Enemy33" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(841.045, 120.127)
+
+[node name="Enemy34" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(927.545, 119.823)
+
+[node name="Enemy35" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(840.602, 200.117)
+
+[node name="Enemy36" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(926.955, 199.873)
+
+[node name="Enemy37" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(1000, 40)
+
+[node name="Enemy38" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(1086.01, 39.9138)
+
+[node name="Enemy39" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(1001.05, 120.127)
+
+[node name="Enemy40" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(1087.55, 119.823)
+
+[node name="Enemy41" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(1000.6, 200.117)
+
+[node name="Enemy42" parent="Level/Enemies" instance=ExtResource("3_tf50o")]
+position = Vector2(1086.95, 199.873)
+
+[node name="Obstacles" type="Node" parent="Level"]
+
+[node name="Dome" parent="Level/Obstacles" instance=ExtResource("4_yxveo")]
+position = Vector2(88, 400)
+
+[node name="Dome2" parent="Level/Obstacles" instance=ExtResource("4_yxveo")]
+position = Vector2(248, 400)
+
+[node name="Dome3" parent="Level/Obstacles" instance=ExtResource("4_yxveo")]
+position = Vector2(408, 400)
+
+[node name="Dome4" parent="Level/Obstacles" instance=ExtResource("4_yxveo")]
+position = Vector2(568, 400)
+
+[node name="Dome5" parent="Level/Obstacles" instance=ExtResource("4_yxveo")]
+position = Vector2(728, 400)
+
+[node name="Dome6" parent="Level/Obstacles" instance=ExtResource("4_yxveo")]
+position = Vector2(888, 400)
+
+[node name="Dome7" parent="Level/Obstacles" instance=ExtResource("4_yxveo")]
+position = Vector2(1048, 400)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Player" parent="." instance=ExtResource("3_2rohj")]
+position = Vector2(542, 570)

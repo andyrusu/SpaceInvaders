@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=3 uid="uid://v5scionpdo6u"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_pk5t0"]
+[ext_resource type="Texture2D" uid="uid://ccdgq13lpw4mk" path="res://Assets/Tank/tanks_tankTracks1.png" id="1_y7n2x"]
+[ext_resource type="Texture2D" uid="uid://dmmolv3v1i8wt" path="res://Assets/Tank/tanks_tankDesert_body3.png" id="2_faquv"]
+[ext_resource type="Texture2D" uid="uid://ba5ave3kw3j46" path="res://Assets/Tank/tanks_turret4.png" id="2_ovl4i"]
+[ext_resource type="Texture2D" uid="uid://cq2qlsphbxmqr" path="res://Assets/Effects/Ground explosion/groundExplosion00.png" id="5_6eus7"]
+[ext_resource type="Texture2D" uid="uid://bse8kp6to5lgl" path="res://Assets/Effects/Ground explosion/groundExplosion01.png" id="6_fejd7"]
+[ext_resource type="Texture2D" uid="uid://b37wx0eoxpxsh" path="res://Assets/Effects/Ground explosion/groundExplosion02.png" id="7_00t75"]
+[ext_resource type="Texture2D" uid="uid://cr0fyf80vnwbn" path="res://Assets/Effects/Ground explosion/groundExplosion03.png" id="8_b16t4"]
+[ext_resource type="Texture2D" uid="uid://df4jyttw0s3ea" path="res://Assets/Effects/Ground explosion/groundExplosion04.png" id="9_bml7c"]
+[ext_resource type="Texture2D" uid="uid://bj5jj347ee5fq" path="res://Assets/Effects/Ground explosion/groundExplosion05.png" id="10_i8emf"]
+[ext_resource type="Texture2D" uid="uid://cpss8vjkhv3qe" path="res://Assets/Effects/Ground explosion/groundExplosion06.png" id="11_un1p0"]
+[ext_resource type="Texture2D" uid="uid://dvq8fd33kohm1" path="res://Assets/Effects/Ground explosion/groundExplosion07.png" id="12_w60bn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lldsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6eus7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fejd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_00t75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b16t4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bml7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i8emf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_un1p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_w60bn")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 15.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_pk5t0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-30, 17, 30, 17, 37, 9, 37, -5, 42, -5, 42, -17, 37, -17, 19, -35, 19, -45, 17, -47, 13, -47, 5, -53, 3, -53, 3, -65, 5, -65, 5, -81, -5, -81, -5, -65, -3, -65, -3, -54, -5, -54, -12, -48, -16, -48, -19, -45, -19, -36, -36, -18, -42, -18, -42, -4, -37, -4, -37, 9)
+
+[node name="BodySprites" type="Node2D" parent="."]
+
+[node name="Tracks" type="Sprite2D" parent="BodySprites"]
+texture = ExtResource("1_y7n2x")
+
+[node name="Turret" type="Sprite2D" parent="BodySprites"]
+position = Vector2(0, -63)
+rotation = -1.5708
+texture = ExtResource("2_ovl4i")
+
+[node name="Body" type="Sprite2D" parent="BodySprites"]
+position = Vector2(0, -27)
+texture = ExtResource("2_faquv")
+
+[node name="BulletStartingPosition" type="Marker2D" parent="."]
+position = Vector2(0, -74)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -84)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_lldsp")
+animation = &"fire"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
