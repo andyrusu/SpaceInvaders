@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d14echvo7lx67"]
+[gd_scene load_steps=14 format=3 uid="uid://d14echvo7lx67"]
 
 [ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_hlfyn"]
 [ext_resource type="Texture2D" uid="uid://cfts3olw0bman" path="res://Assets/Ship/enemyBlack1.png" id="1_u03pa"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cce3bxqpqv132" path="res://Assets/Effects/Sonic explosion/sonicExplosion06.png" id="9_s71nt"]
 [ext_resource type="Texture2D" uid="uid://c8pnvygm01cyf" path="res://Assets/Effects/Sonic explosion/sonicExplosion07.png" id="10_e15lb"]
 [ext_resource type="Texture2D" uid="uid://b5ii61loy1ted" path="res://Assets/Effects/Sonic explosion/sonicExplosion08.png" id="11_2ed7a"]
+[ext_resource type="Script" path="res://Scenes/FireInterval.gd" id="12_e1quq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1cx4x"]
 animations = [{
@@ -70,3 +71,10 @@ visible = false
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_1cx4x")
 animation = &"explosion"
+
+[node name="FireInterval" type="Timer" parent="."]
+one_shot = true
+script = ExtResource("12_e1quq")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 22)

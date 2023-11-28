@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmpmshsu8x5my"]
+[gd_scene load_steps=11 format=3 uid="uid://cmpmshsu8x5my"]
 
 [ext_resource type="Texture2D" uid="uid://3hjtik3pkvj5" path="res://Assets/backgroundEmpty.png" id="1_0nnvn"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_6v8l5"]
 [ext_resource type="Texture2D" uid="uid://bbtowi4oei1pm" path="res://Assets/grassMid.png" id="2_b11ks"]
 [ext_resource type="PackedScene" uid="uid://v5scionpdo6u" path="res://Scenes/player.tscn" id="3_2rohj"]
 [ext_resource type="PackedScene" uid="uid://d14echvo7lx67" path="res://Scenes/enemy.tscn" id="3_tf50o"]
+[ext_resource type="Script" path="res://Scenes/move_controller.gd" id="4_la44r"]
 [ext_resource type="PackedScene" uid="uid://bdtbs2ndxpjyw" path="res://Scenes/dome.tscn" id="4_yxveo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0qmi"]
@@ -204,6 +205,7 @@ shape = SubResource("RectangleShape2D_vu5th")
 [node name="Column1" type="Path2D" parent="Level/ColumnPaths"]
 position = Vector2(-16, -16)
 curve = SubResource("Curve2D_e1u0n")
+script = ExtResource("4_la44r")
 
 [node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column1"]
 position = Vector2(56, 56)
@@ -261,6 +263,7 @@ remote_path = NodePath("../../../../Enemies/Enemy6")
 [node name="Column2" type="Path2D" parent="Level/ColumnPaths"]
 position = Vector2(144, -16)
 curve = SubResource("Curve2D_e1u0n")
+script = ExtResource("4_la44r")
 
 [node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column2"]
 position = Vector2(56, 56)
@@ -318,6 +321,7 @@ remote_path = NodePath("../../../../Enemies/Enemy12")
 [node name="Column3" type="Path2D" parent="Level/ColumnPaths"]
 position = Vector2(312, -16)
 curve = SubResource("Curve2D_e1u0n")
+script = ExtResource("4_la44r")
 
 [node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column3"]
 position = Vector2(56, 56)
@@ -375,6 +379,7 @@ remote_path = NodePath("../../../../Enemies/Enemy18")
 [node name="Column4" type="Path2D" parent="Level/ColumnPaths"]
 position = Vector2(472, -16)
 curve = SubResource("Curve2D_e1u0n")
+script = ExtResource("4_la44r")
 
 [node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column4"]
 position = Vector2(56, 56)
@@ -432,6 +437,7 @@ remote_path = NodePath("../../../../Enemies/Enemy24")
 [node name="Column5" type="Path2D" parent="Level/ColumnPaths"]
 position = Vector2(632, -16)
 curve = SubResource("Curve2D_e1u0n")
+script = ExtResource("4_la44r")
 
 [node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column5"]
 position = Vector2(56, 56)
@@ -489,6 +495,7 @@ remote_path = NodePath("../../../../Enemies/Enemy30")
 [node name="Column6" type="Path2D" parent="Level/ColumnPaths"]
 position = Vector2(784, -16)
 curve = SubResource("Curve2D_e1u0n")
+script = ExtResource("4_la44r")
 
 [node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column6"]
 position = Vector2(56, 56)
@@ -546,6 +553,7 @@ remote_path = NodePath("../../../../Enemies/Enemy36")
 [node name="Column7" type="Path2D" parent="Level/ColumnPaths"]
 position = Vector2(944, -16)
 curve = SubResource("Curve2D_e1u0n")
+script = ExtResource("4_la44r")
 
 [node name="FirstRow" type="PathFollow2D" parent="Level/ColumnPaths/Column7"]
 position = Vector2(56, 56)
@@ -756,3 +764,46 @@ position = Vector2(576, 324)
 
 [node name="Player" parent="." instance=ExtResource("3_2rohj")]
 position = Vector2(542, 570)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="LeftCorner" type="MarginContainer" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_right = 215.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LiveContainer" type="HBoxContainer" parent="UI/LeftCorner"]
+layout_mode = 2
+
+[node name="LivesLabel" type="Label" parent="UI/LeftCorner/LiveContainer"]
+layout_mode = 2
+text = "Lives:"
+
+[node name="RightCorner" type="MarginContainer" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Score" type="HBoxContainer" parent="UI/RightCorner"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="UI/RightCorner/Score"]
+layout_mode = 2
+text = "Score:"
+
+[node name="ScoreValue" type="Label" parent="UI/RightCorner/Score"]
+layout_mode = 2
+text = "0"

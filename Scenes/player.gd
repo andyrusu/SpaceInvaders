@@ -4,6 +4,8 @@ class_name Player
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@export var lives : int = 3
+
 @onready var bulletStartingPosition : Marker2D = $BulletStartingPosition
 @onready var timer : Timer = $Timer
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
@@ -38,3 +40,10 @@ func start_fire_animation():
 	if not animation.is_playing():
 		animation.visible = true
 		animation.play("fire")
+
+func hit():
+	lives -= 1
+	get_tree().call_group('Game', 'remove_one_life')
+
+	if (lives <= 0):
+		get_tree().reload_current_scene()
